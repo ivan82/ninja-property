@@ -1,13 +1,13 @@
 var NinjaProperty = {
-	value: function(object, propertyPath){
-		var propertyValueObject = this.valueObject(object, propertyPath);
+	value: function(object, propertyPath, newValue){
+		var propertyValueObject = this.valueObject(object, propertyPath, newValue);
 		return propertyValueObject.success ? propertyValueObject.value : undefined;
 	},
 
-	valueObject: function(object, propertyPath){
+	valueObject: function(object, propertyPath, newValue){
 		var pathArray = this.getPathArray(propertyPath);
 		if(!pathArray || pathArray.length === 0){ return undefined; }
-		return this.valueObjectByPathArray(object, pathArray);
+		return this.valueObjectByPathArray(object, pathArray, newValue);
 	},
 
 	/*
